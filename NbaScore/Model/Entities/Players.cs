@@ -2,9 +2,9 @@
 
 namespace NbaScore.Model.Entities
 {
-    public class StatsData
+    public class Players
     {
-        public List<Stats> Data { get; set; }
+        public List<Player> Data { get; set; }
         public Meta Meta { get; set; }
     }
 }
