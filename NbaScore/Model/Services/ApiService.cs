@@ -27,5 +27,21 @@ namespace NbaScore.View.Services
             }
             return null;
         }
+
+        public static Games GetGamesByDate(string startDate, string endDate)
+        {
+            RestRequest request = new RestRequest();
+            request.Method = Method.GET;
+            request.AddParameter("command", "games", ParameterType.UrlSegment);
+            request.AddParameter("start_date", startDate);
+            request.AddParameter("end_date", endDate);
+
+            IRestResponse response = client.Execute(request);
+            if(response.IsSuccessful)
+            {
+                return JsonConvert.DeserializeObject<Games>(response.Content);
+            }
+            return null;
+        }
     }
 }

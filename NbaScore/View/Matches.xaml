@@ -10,8 +10,13 @@
     </ContentPage.BindingContext>
        
     <ContentPage.Content>
-        <StackLayout>
-            <Grid HeightRequest="300">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50" />
                     <ColumnDefinition Width="*" />
@@ -21,6 +26,7 @@
                 <Button Grid.Column="0"
                         Text="Prev"
                         FontSize="10"
+                        Command="{Binding SubtractMonth}"
                         />
 
                 <Label Grid.Column="1"
@@ -33,18 +39,56 @@
                 <Button Grid.Column="2"
                         Text="Next" 
                         FontSize="10"
+                        Command="{Binding AddMonth}"
                         />
 
             </Grid>
 
+            <CarouselView
+                Grid.Row="1"
+                ItemsSource="{Binding Dates}"
+                CurrentItem="{Binding Date}"
+                >
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                        <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" 
+                                       Text="{Binding DayName}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="{Binding Color}"
+                                       FontSize="25"
+                                       />
+                                <Label Grid.Row="1"
+                                       Text="{Binding Day}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       TextColor="{Binding Color}"
+                                       FontSize="35"
+                                       />
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
             <ListView 
-            ItemsSource="{Binding Games}"
-            RowHeight="156"
-        >
+                ItemsSource="{Binding Games}"
+                RowHeight="156"
+                Grid.Row="2"
+                SelectedItem="{Binding Game, Mode=TwoWay}"
+            >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid BackgroundColor="#3B72D9" Margin="8, 8, 8, 8">
+                            <Grid Margin="8, 0, 8, 8">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20" />
                                     <RowDefinition Height="136" />
@@ -139,6 +183,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -5,11 +5,17 @@ using System.Collections.Generic;
 using System.Text;
 using NbaScore.ViewModel.BaseClasses;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Xamarin.Forms;
+using NbaScore.Model;
 
 namespace NbaScore.ViewModel
 {
     class MatchesViewModel : ViewModelBase
     {
+        private int month = DateTime.Now.Month;
+        private int year = DateTime.Now.Year;
+
         private ObservableCollection<Date> dates = new ObservableCollection<Date>();
         public ObservableCollection<Date> Dates
         {
@@ -32,9 +38,44 @@ namespace NbaScore.ViewModel
             }
         }
 
+        private Game game;
+        public Game Game
+        {
+            get => game;
+            set
+            {
+                HelperClass.game = value;
+                game = value;
+                Application.Current.MainPage.DisplayAlert("Message", HelperClass.game.HomeTeam.FullName, "OK");
+                OnPropertyChanged(nameof(Game));
+            }
+        }
+
+        private Date date;
+        public Date Date
+        {
+            get => date;
+            set
+            {
+                if(value != null)
+                {
+                    date = value;
+                    string newDate = date.Year + "-" + date.Month + "-" + date.Day;
+                    Games = ApiService.GetGamesByDate(newDate, newDate).Data;
+                    OnPropertyChanged(nameof(Date));
+                }
+            }
+        }
+
+        private ObservableCollection<Game> games = new ObservableCollection<Game>();
         public ObservableCollection<Game> Games
         {
-            get => ApiService.GetGames().Data;
+            get => games;
+            set
+            {
+                games = value;
+                OnPropertyChanged(nameof(Games));
+            }
 
         }
 
@@ -48,8 +89,16 @@ namespace NbaScore.ViewModel
 
         public MatchesViewModel()
         {
-            var year = DateTime.Now.Year;
-            var month = DateTime.Now.Month;
+            Games = ApiService.GetGamesByDate("2021-05-03", "2021-05-03").Data;
+            GetDates();
+            CurrentMonth = DateTime.Now.ToString("MMMM") + ", " + year;
+            AddMonth = new Command(NextMonth);
+            SubtractMonth = new Command(PrevMonth);
+        }
+
+        private void GetDates()
+        {
+            Dates.Clear();
             for (var date = new DateTime(year, month, 1); date.Month == month; date = date.AddDays(1))
             {
                 string color = "#FA2400";
@@ -57,8 +106,34 @@ namespace NbaScore.ViewModel
                     color = "#000000";
                 Dates.Add(new Date(date.Day, date.Month, date.Year, date.DayOfWeek.ToString(), color));
             }
-
-            currentMonth = DateTime.Now.ToString("MMMM") + ", " + year;
         }
+
+        private void NextMonth()
+        {
+            month += 1;
+            if(month == 13)
+            {
+                month = 1;
+                year += 1;
+            }
+            GetDates();
+            CurrentMonth = new DateTime(year, month, 1).ToString("MMMM") + ", " + year.ToString();
+        }
+
+        public ICommand AddMonth { get; }
+
+        private void PrevMonth()
+        {
+            month -= 1;
+            if(month == 0)
+            {
+                month = 12;
+                year -= 1;
+            }
+            GetDates();
+            CurrentMonth = new DateTime(year, month, 1).ToString("MMMM") + ", " + year.ToString();
+        }
+
+        public ICommand SubtractMonth { get; }
     }
 }
