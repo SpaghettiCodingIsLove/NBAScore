@@ -133,4 +133,106 @@
       <Name>NbaScore</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\atl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bkn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\chi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\dal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\den.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\det.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gsw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hou.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lac.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\lal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\mil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nyk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\okc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\orl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\phi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\phx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\por.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sac.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\sas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\uta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\was.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clubs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\matches.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\player.png" />
+  </ItemGroup>
 </Project>
