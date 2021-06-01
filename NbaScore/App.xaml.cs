@@ -12,7 +12,8 @@ namespace NbaScore
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new BottomMenu();
+            //MainPage = new BottomMenu();
+            MainPage = new NavigationPage(new BottomMenu());
         }
 
         protected override void OnStart()

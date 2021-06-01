@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 using NbaScore.Model;
+using NbaScore.View;
 
 namespace NbaScore.ViewModel
 {
@@ -46,7 +47,7 @@ namespace NbaScore.ViewModel
             {
                 HelperClass.game = value;
                 game = value;
-                Application.Current.MainPage.DisplayAlert("Message", HelperClass.game.HomeTeam.FullName, "OK");
+                Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new GameStats());
                 OnPropertyChanged(nameof(Game));
             }
         }
@@ -91,6 +92,13 @@ namespace NbaScore.ViewModel
         {
             Games = ApiService.GetGamesByDate("2021-05-03", "2021-05-03").Data;
             GetDates();
+
+            for(int i=0; i<Dates.Count; i++)
+            {
+                if (Dates[i].Day == DateTime.Now.Day && Dates[i].Month == DateTime.Now.Month && Dates[i].Year == DateTime.Now.Year)
+                    Date = Dates[i];
+            }
+
             CurrentMonth = DateTime.Now.ToString("MMMM") + ", " + year;
             AddMonth = new Command(NextMonth);
             SubtractMonth = new Command(PrevMonth);
