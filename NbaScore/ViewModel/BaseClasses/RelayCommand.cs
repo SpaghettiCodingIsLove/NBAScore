@@ -16,6 +16,12 @@ namespace NbaScore.ViewModel.BaseClasses
             _canExecute = canExecute;
         }
 
+        public RelayCommand(Action execute)
+            : this(execute, () => true)
+        {
+
+        }
+
         public bool CanExecute(object parameter) => _canExecute == null ? true : _canExecute();
 
         public void Execute(object parameter) => _execute();
@@ -34,6 +40,12 @@ namespace NbaScore.ViewModel.BaseClasses
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
+        }
+
+        public RelayCommand(Action<T> execute) 
+            : this(execute, x => true)
+        {
+
         }
 
         public bool CanExecute(object parameter) => _canExecute == null ? true : _canExecute((T)parameter);
