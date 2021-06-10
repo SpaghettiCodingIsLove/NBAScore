@@ -1,10 +1,10 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 
 namespace NbaScore.Model.Entities
 {
     public class Teams
     {
-        public ObservableCollection<Team> Data { get; set; }
+        public IEnumerable<Team> Data { get; set; }
         public Meta Meta { get; set; }
     }
 }

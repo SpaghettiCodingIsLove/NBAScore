@@ -20,7 +20,7 @@ namespace NbaScore.Model.Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string dbPath = string.Empty;
+            string dbPath;
 
             if (Xamarin.Forms.Device.RuntimePlatform == Xamarin.Forms.Device.Android)
             {

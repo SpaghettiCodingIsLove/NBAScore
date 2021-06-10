@@ -1,8 +1,5 @@
 ﻿using NbaScore.View;
 using NbaScore.ViewModel.BaseClasses;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 
 namespace NbaScore.ViewModel
@@ -26,7 +23,14 @@ namespace NbaScore.ViewModel
                             case "div":
                                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new Divisions());
                                 break;
+                            case "east":
+                                Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new League(true, x));
+                                break;
+                            case "west":
+                                Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new League(true, x));
+                                break;
                             default:
+                                Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new League(false, x));
                                 break;
                         }
                     });
