@@ -27,7 +27,7 @@ namespace NbaScore.ViewModel
                     Teams = allTeams.Where(x => x.Division.Equals(name, System.StringComparison.OrdinalIgnoreCase)).ToList();
                 }
 
-                /*using (DatabaseContext context = new DatabaseContext())
+                using (DatabaseContext context = new DatabaseContext())
                 {
                     //zapis
                     Team team = Teams.First();
@@ -38,7 +38,7 @@ namespace NbaScore.ViewModel
                     }
                     //odczyt
                     List<Team> teams = context.Teams.ToList();
-                }*/
+                }
             }
         }
 

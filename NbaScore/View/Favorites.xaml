@@ -1,12 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NbaScore.View.Favorites">
+             xmlns:vm="clr-namespace:NbaScore.ViewModel"
+             x:Class="NbaScore.View.Favorites"
+             Title="Favorites"
+             >
+
+    <ContentPage.BindingContext>
+        <vm:FavoritesViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Yours favorites clubs"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <ListView 
+                ItemsSource="{Binding FavoriteTeams}"
+                RowHeight="156"
+                SelectedItem="{Binding Team, Mode=TwoWay}"
+            >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                Margin="8, 8, 8, 8"
+                                BackgroundColor="LightGray"
+                                >
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*" />
+                                    <ColumnDefinition Width="7*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image 
+                                    Grid.Column="0"
+                                    Source="{Binding Abbreviation}"
+                                    />
+
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label 
+                                        Grid.Row="0"
+                                        FontSize="30"
+                                        HorizontalTextAlignment="Center"
+                                        VerticalTextAlignment="Center"
+                                        TextColor="White"
+                                        Text="{Binding FullName}" />
+
+
+                                    <Grid Grid.Row="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label 
+                                            Grid.Column="0"
+                                            FontSize="20"
+                                            TextColor="White"
+                                            HorizontalTextAlignment="End"
+                                            Text="Conference: "
+                                            />
+
+                                        <Label
+                                            Grid.Column="1"
+                                            TextColor="White"
+                                            FontSize="20"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding Conference}"
+                                            />
+
+                                    </Grid>
+
+                                </Grid>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

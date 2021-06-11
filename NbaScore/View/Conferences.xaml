@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:NbaScore.ViewModel"
-             x:Class="NbaScore.View.Conferences">
+             x:Class="NbaScore.View.Conferences"
+             Title="Conferences"
+             >
 
     <ContentPage.BindingContext>
         <vm:ClubsViewModel/>

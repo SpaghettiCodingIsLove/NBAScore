@@ -4,6 +4,11 @@
              x:Class="NbaScore.App"
              >
     <Application.Resources>
+        <Color x:Key="Primary">#17408b</Color>
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+            <Setter Property="BarTextColor" Value="White" />
+        </Style>
         <Color x:Key="BarBackgroundColor">#17408b</Color>
         <Color x:Key="PageBackgroundColor">White</Color>
         <Color x:Key="NavigationBarColor">#17408b</Color>

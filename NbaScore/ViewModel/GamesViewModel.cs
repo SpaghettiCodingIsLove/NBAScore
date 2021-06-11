@@ -12,7 +12,7 @@ using NbaScore.View;
 
 namespace NbaScore.ViewModel
 {
-    class MatchesViewModel : ViewModelBase
+    class GamesViewModel : ViewModelBase
     {
         private int month = DateTime.Now.Month;
         private int year = DateTime.Now.Year;
@@ -45,8 +45,8 @@ namespace NbaScore.ViewModel
             get => game;
             set
             {
-                HelperClass.game = value;
                 game = value;
+                HelperClass.game = value;
                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new GameStats());
                 OnPropertyChanged(nameof(Game));
             }
@@ -88,7 +88,7 @@ namespace NbaScore.ViewModel
             }
         }
 
-        public MatchesViewModel()
+        public GamesViewModel()
         {
             Games = ApiService.GetGamesByDate("2021-05-03", "2021-05-03").Data;
             GetDates();

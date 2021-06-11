@@ -8,5 +8,6 @@ namespace NbaScore.Model
     static class HelperClass
     {
         public static Game game;
+        public static Team team;
     }
 }

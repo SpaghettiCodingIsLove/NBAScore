@@ -44,14 +44,15 @@ namespace NbaScore.View.Services
             return null;
         }
 
-        public static Games GetFavoriteTeamGames(int season, long teamId)
+        public static Games GetFavoriteTeamGames(int season, long teamId, int page)
         {
             RestRequest request = new RestRequest();
             request.Method = Method.GET;
             request.AddParameter("command", "games", ParameterType.UrlSegment);
             request.AddParameter("seasons[]", season);
             request.AddParameter("team_ids[]", teamId);
-            request.AddParameter("per_page", 82);
+            request.AddParameter("per_page", 100);
+            request.AddParameter("page", page);
 
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
