@@ -19,11 +19,7 @@ namespace NbaScore.ViewModel
         {
             using(DatabaseContext context = new DatabaseContext())
             {
-                List<Team> tmp = context.Teams.ToList();
-                foreach(Team team in tmp)
-                {
-                    FavoriteTeams.Add(team);
-                }
+                FavoriteTeams = new ObservableCollection<Team>(context.Teams);
             }
         }
 

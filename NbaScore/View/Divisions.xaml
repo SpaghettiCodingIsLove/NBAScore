@@ -12,12 +12,12 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" >
-            <Button Text="Atlantic" Command="{Binding GoTo}" CommandParameter="atlantic"/>
-            <Button Text="Central" Command="{Binding GoTo}" CommandParameter="centeral"/>
-            <Button Text="Southeast" Command="{Binding GoTo}" CommandParameter="southeast"/>
-            <Button Text="Northwest" Command="{Binding GoTo}" CommandParameter="northwest"/>
-            <Button Text="Pacific" Command="{Binding GoTo}" CommandParameter="pacific"/>
-            <Button Text="Southwest" Command="{Binding GoTo}" CommandParameter="southwest"/>
+            <Button Text="Atlantic" Command="{Binding GoTo}" CommandParameter="Atlantic"/>
+            <Button Text="Central" Command="{Binding GoTo}" CommandParameter="Centeral"/>
+            <Button Text="Southeast" Command="{Binding GoTo}" CommandParameter="Southeast"/>
+            <Button Text="Northwest" Command="{Binding GoTo}" CommandParameter="Northwest"/>
+            <Button Text="Pacific" Command="{Binding GoTo}" CommandParameter="Pacific"/>
+            <Button Text="Southwest" Command="{Binding GoTo}" CommandParameter="Southwest"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

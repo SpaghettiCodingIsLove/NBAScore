@@ -23,10 +23,10 @@ namespace NbaScore.ViewModel
                             case "div":
                                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new Divisions());
                                 break;
-                            case "east":
+                            case "East":
                                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new League(true, x));
                                 break;
-                            case "west":
+                            case "West":
                                 Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new League(true, x));
                                 break;
                             default:

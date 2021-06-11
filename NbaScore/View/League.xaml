@@ -2,13 +2,56 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NbaScore.View.League"
-             Title="League"
+             Title="{Binding Name}"
              >
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <ListView 
+                ItemsSource="{Binding Teams}"
+                SelectedItem="{Binding TeamSelected, Mode=TwoWay}"
+                RowHeight="156"
+                Grid.Row="2"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand"
+               >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                Margin="8, 0, 8, 8"
+                                BackgroundColor="LightGray"
+                                >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20" />
+                                    <RowDefinition Height="136" />
+                                </Grid.RowDefinitions>
+
+
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="80" />
+                                            <RowDefinition Height="20" />
+                                        </Grid.RowDefinitions>
+
+                                        <Image Grid.Row="0" Source="{Binding Abbreviation}" />
+                                        <Label Grid.Row="1" Text="{Binding FullName}"
+                                           HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"
+                                           />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

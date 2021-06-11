@@ -1,4 +1,5 @@
-﻿using NbaScore.ViewModel;
+﻿using NbaScore.Model.Entities;
+using NbaScore.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace NbaScore.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Favorites : ContentPage
+    public partial class TeamPage : ContentPage
     {
-        public Favorites()
+        public TeamPage(Team team)
         {
+            this.BindingContext = new TeamViewModel(team);
             InitializeComponent();
-        }
-
-        protected override void OnAppearing()
-        {
-            this.BindingContext = new FavoritesViewModel();
-            base.OnAppearing();
         }
     }
 }

@@ -13,8 +13,8 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" >
-            <Button Text="East" Command="{Binding GoTo}" CommandParameter="east"/>
-            <Button Text="West" Command="{Binding GoTo}" CommandParameter="west"/>
+            <Button Text="East" Command="{Binding GoTo}" CommandParameter="East"/>
+            <Button Text="West" Command="{Binding GoTo}" CommandParameter="West"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

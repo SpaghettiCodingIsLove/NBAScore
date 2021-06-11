@@ -3,13 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NbaScore.View.BottomMenu"
             xmlns:view="clr-namespace:NbaScore.View"
+            xmlns:viewModels="clr-namespace:NbaScore.ViewModel"
             NavigationPage.HasNavigationBar="False"
             BarBackgroundColor="#17408b"
             >
 
-    <view:Matches Title="Games" IconImageSource="matches.png"></view:Matches>
-    <view:Players Title="Players" IconImageSource="player.png"></view:Players>
-    <view:Clubs Title="Clubs" IconImageSource="clubs.png"></view:Clubs>
-    <view:Favorites Title="Favorites" IconImageSource="favorite.png"></view:Favorites>
-    
+    <TabbedPage.Children>
+        <view:Matches IconImageSource="matches.png">
+            <view:Matches.BindingContext>
+                <viewModels:GamesViewModel/>
+            </view:Matches.BindingContext>
+        </view:Matches>
+        <view:Players IconImageSource="player.png">
+            <view:Players.BindingContext>
+                <viewModels:PlayersViewModel/>
+            </view:Players.BindingContext>
+        </view:Players>
+        <view:Clubs IconImageSource="clubs.png">
+            <view:Clubs.BindingContext>
+                <viewModels:ClubsViewModel/>
+            </view:Clubs.BindingContext>
+        </view:Clubs>
+        <view:Favorites IconImageSource="favorite.png">
+            <view:Favorites.BindingContext>
+                <viewModels:FavoritesViewModel/>
+            </view:Favorites.BindingContext>
+        </view:Favorites>
+    </TabbedPage.Children>
+
 </TabbedPage>
