@@ -15,6 +15,8 @@ namespace NbaScore.Model.Entities
         public int? HeightInches { get; set; }
         [JsonProperty(PropertyName = "weight_pounds")]
         public int? WeightPounds { get; set; }
+        [JsonProperty(PropertyName = "position")]
+        public string Position { get; set; }
         public Team Team { get; set; }
     }
 }
