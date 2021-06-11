@@ -30,8 +30,12 @@ namespace NbaScore.ViewModel
                 /*using (DatabaseContext context = new DatabaseContext())
                 {
                     //zapis
-                    context.Teams.Add(Teams.First());
-                    context.SaveChanges();
+                    Team team = Teams.First();
+                    if (!context.Teams.Any(x => x.Id == team.Id))
+                    {
+                        context.Teams.Add(Teams.First());
+                        context.SaveChanges();
+                    }
                     //odczyt
                     List<Team> teams = context.Teams.ToList();
                 }*/
