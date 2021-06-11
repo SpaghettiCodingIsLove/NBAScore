@@ -14,11 +14,13 @@ namespace NbaScore.ViewModel
 {
     class GameStatsViewModel : ViewModelBase
     {
+        private string title;
 
         public GameStatsViewModel()
         {
             game = HelperClass.game;
             stats = ApiService.GetStatsFromGame(game.Id);
+            Title = $"{game.HomeTeam.Name} vs {game.VisitorTeam.Name}";
             currentStats = new ObservableCollection<Stats>(stats.Data);
             A = new Command(Away);
             H = new Command(Home);
@@ -46,6 +48,15 @@ namespace NbaScore.ViewModel
             set => stats = value;
         }
 
+        public string Title
+        {
+            get => title;
+            set
+            {
+                title = value;
+                OnPropertyChanged(nameof(Title));
+            }
+        }
         public ICommand A { get; }
         public ICommand H { get; }
 

@@ -82,8 +82,12 @@ namespace NbaScore.ViewModel
             set
             {
                 game = value;
-                HelperClass.game = value;
-                Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new GameStats());
+                if(value != null)
+                {
+                    HelperClass.game = value;
+                    Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new GameStats());
+                    Game = null;
+                }
                 OnPropertyChanged(nameof(Game));
             }
         }
