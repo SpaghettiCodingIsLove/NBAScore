@@ -22,8 +22,8 @@ namespace NbaScore.ViewModel
             stats = ApiService.GetStatsFromGame(game.Id);
             Title = $"{game.HomeTeam.Name} vs {game.VisitorTeam.Name}";
             currentStats = new ObservableCollection<Stats>(stats.Data);
-            A = new Command(Away);
-            H = new Command(Home);
+            AwayButton = new Command(Away);
+            HomeButton = new Command(Home);
         }
 
         private Game game;
@@ -57,8 +57,8 @@ namespace NbaScore.ViewModel
                 OnPropertyChanged(nameof(Title));
             }
         }
-        public ICommand A { get; }
-        public ICommand H { get; }
+        public ICommand AwayButton { get; }
+        public ICommand HomeButton { get; }
 
         private void Away()
         {
