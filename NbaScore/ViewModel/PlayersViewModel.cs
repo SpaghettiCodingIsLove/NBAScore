@@ -14,6 +14,7 @@ namespace NbaScore.ViewModel
         public PlayersViewModel()
         {
             loading = true;
+            initialized = false;
             Init();
         }
 
@@ -21,7 +22,10 @@ namespace NbaScore.ViewModel
         {
             await HelperClass.Init();
 
+            //tu można używać HelperClass.AllPlayers
+
             Loading = false;
+            Initialized = true;
         }
 
         private bool loading;
@@ -29,6 +33,13 @@ namespace NbaScore.ViewModel
         {
             get => loading;
             set => SetProperty(ref loading, value);
+        }
+
+        private bool initialized;
+        public bool Initialized
+        {
+            get => initialized;
+            set => SetProperty(ref initialized, value);
         }
     }
 }
