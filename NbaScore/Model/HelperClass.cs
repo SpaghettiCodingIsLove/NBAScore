@@ -14,18 +14,13 @@ namespace NbaScore.Model
         static HelperClass()
         {
             AllPlayers = new List<Player>();
+            Initialized = false;
         }
 
         public static async Task Init()
-        {
-            while (init)
-            {
-                Thread.Sleep(1000);
-            }
-            
+        {      
             if (AllPlayers.Count == 0)
             {
-                init = true;
                 Players response = await ApiService.GetPlayersPage(100, 1);
                 AllPlayers.AddRange(response.Data);
 
@@ -35,13 +30,13 @@ namespace NbaScore.Model
                     AllPlayers.AddRange(response.Data);
                 }
 
-                init = false;
+                Initialized = true;
             }
         }
 
         public static Game Game { get; set; }
         public static Team Team { get; set; }
         public static List<Player> AllPlayers { get; set; }
-        private static bool init = false;
+        public static bool Initialized { get; set; }
     }
 }

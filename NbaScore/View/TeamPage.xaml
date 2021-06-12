@@ -10,7 +10,7 @@
 
             <ListView 
                 ItemsSource="{Binding Players}"
-                SelectedItem="{Binding TeamSelected, Mode=TwoWay}"
+                SelectedItem="{Binding PlayerSelected, Mode=TwoWay}"
                 RowHeight="156"
                 Grid.Row="2"
                 VerticalOptions="CenterAndExpand" 

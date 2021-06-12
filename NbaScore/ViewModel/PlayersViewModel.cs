@@ -1,4 +1,6 @@
 ﻿using NbaScore.Model;
+using NbaScore.Model.Entities;
+using NbaScore.View;
 using NbaScore.ViewModel.BaseClasses;
 using System;
 using System.Collections.Generic;

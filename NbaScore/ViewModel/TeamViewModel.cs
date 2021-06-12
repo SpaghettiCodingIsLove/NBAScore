@@ -1,5 +1,6 @@
 ﻿using NbaScore.Model;
 using NbaScore.Model.Entities;
+using NbaScore.View;
 using NbaScore.ViewModel.BaseClasses;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,19 @@ namespace NbaScore.ViewModel
             this.team = team;
             loading = true;
             initialized = false;
-            Init();
+            Thread thread = new Thread(() =>
+            {
+                Init();
+            });
+            thread.Start();
         }
 
         private async Task Init()
         {
-            await HelperClass.Init();
+            while (!HelperClass.Initialized)
+            {
+                Thread.Sleep(1000);
+            }
 
             Players = HelperClass.AllPlayers.Where(x => x.Team.Id == team.Id);
             Loading = false;
@@ -43,6 +51,20 @@ namespace NbaScore.ViewModel
         {
             get => initialized;
             set => SetProperty(ref initialized, value);
+        }
+
+        public Player PlayerSelected
+        {
+            get => null;
+            set
+            {
+                OnPropertyChanged(nameof(PlayerSelected));
+
+                if (value != null)
+                {
+                    Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new PlayerPage(value));
+                }
+            }
         }
 
         private IEnumerable<Player> players;
