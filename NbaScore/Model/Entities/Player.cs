@@ -8,7 +8,7 @@ namespace NbaScore.Model.Entities
         [JsonProperty(PropertyName = "first_name")]
         public string FirstName { get; set; }
         [JsonProperty(PropertyName = "last_name")]
-        public string LasrName { get; set; }
+        public string LastName { get; set; }
         [JsonProperty(PropertyName = "height_feet")]
         public int? HeightFeet { get; set; }
         [JsonProperty(PropertyName = "height_inches")]

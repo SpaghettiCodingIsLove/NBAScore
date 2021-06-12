@@ -1,6 +1,7 @@
 ﻿using NbaScore.Model.Entities;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Threading.Tasks;
 
 namespace NbaScore.View.Services
 {
@@ -62,7 +63,7 @@ namespace NbaScore.View.Services
             return null;
         }
 
-        public static Players GetPlayers()
+        public static Model.Entities.Players GetPlayers()
         {
             RestRequest request = new RestRequest();
             request.Method = Method.GET;
@@ -71,12 +72,12 @@ namespace NbaScore.View.Services
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<Players>(response.Content);
+                return JsonConvert.DeserializeObject<Model.Entities.Players>(response.Content);
             }
             return null;
         }
 
-        public static Players GetPlayersPage(int perPage, int page)
+        public static async Task<Model.Entities.Players> GetPlayersPage(int perPage, int page)
         {
             RestRequest request = new RestRequest();
             request.Method = Method.GET;
@@ -84,15 +85,15 @@ namespace NbaScore.View.Services
             request.AddParameter("per_page", perPage);
             request.AddParameter("page", page);
 
-            IRestResponse response = client.Execute(request);
+            IRestResponse response = await client.ExecuteAsync(request);
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<Players>(response.Content);
+                return JsonConvert.DeserializeObject<Model.Entities.Players>(response.Content);
             }
             return null;
         }
 
-        public static Players GetSearchedPlayers(string word)
+        public static Model.Entities.Players GetSearchedPlayers(string word)
         {
             RestRequest request = new RestRequest();
             request.Method = Method.GET;
@@ -103,7 +104,7 @@ namespace NbaScore.View.Services
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<Players>(response.Content);
+                return JsonConvert.DeserializeObject<Model.Entities.Players>(response.Content);
             }
             return null;
         }

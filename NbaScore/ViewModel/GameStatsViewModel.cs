@@ -18,7 +18,7 @@ namespace NbaScore.ViewModel
 
         public GameStatsViewModel()
         {
-            game = HelperClass.game;
+            game = HelperClass.Game;
             stats = ApiService.GetStatsFromGame(game.Id);
             Title = $"{game.HomeTeam.Name} vs {game.VisitorTeam.Name}";
             currentStats = new ObservableCollection<Stats>(stats.Data);

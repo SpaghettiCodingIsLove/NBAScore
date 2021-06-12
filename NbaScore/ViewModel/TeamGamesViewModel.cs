@@ -20,7 +20,7 @@ namespace NbaScore.ViewModel
 
         public TeamGamesViewModel()
         {
-            Team = HelperClass.team;
+            Team = HelperClass.Team;
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
 
@@ -84,7 +84,7 @@ namespace NbaScore.ViewModel
                 game = value;
                 if(value != null)
                 {
-                    HelperClass.game = value;
+                    HelperClass.Game = value;
                     Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new GameStats());
                     Game = null;
                 }
