@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:NbaScore.ViewModel"
              x:Class="NbaScore.View.Divisions"
-             Title="Divisions">
+             Title="Divisions"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             >
 
     <ContentPage.BindingContext>
         <vm:ClubsViewModel/>
@@ -12,12 +14,12 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" >
-            <Button Text="Atlantic" Command="{Binding GoTo}" CommandParameter="Atlantic" BackgroundColor="#17408b" TextColor="White"/>
-            <Button Text="Central" Command="{Binding GoTo}" CommandParameter="Centeral" BackgroundColor="#c9082a" TextColor="White"/>
-            <Button Text="Southeast" Command="{Binding GoTo}" CommandParameter="Southeast" BackgroundColor="#17408b" TextColor="White"/>
-            <Button Text="Northwest" Command="{Binding GoTo}" CommandParameter="Northwest" BackgroundColor="#c9082a" TextColor="White"/>
-            <Button Text="Pacific" Command="{Binding GoTo}" CommandParameter="Pacific" BackgroundColor="#17408b" TextColor="White"/>
-            <Button Text="Southwest" Command="{Binding GoTo}" CommandParameter="Southwest" BackgroundColor="#c9082a" TextColor="White"/>
+            <Button Text="Atlantic" Command="{Binding GoTo}" CommandParameter="Atlantic" BackgroundColor="#17408b" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
+            <Button Text="Central" Command="{Binding GoTo}" CommandParameter="Centeral" BackgroundColor="#c9082a" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
+            <Button Text="Southeast" Command="{Binding GoTo}" CommandParameter="Southeast" BackgroundColor="#17408b" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
+            <Button Text="Northwest" Command="{Binding GoTo}" CommandParameter="Northwest" BackgroundColor="#c9082a" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
+            <Button Text="Pacific" Command="{Binding GoTo}" CommandParameter="Pacific" BackgroundColor="#17408b" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
+            <Button Text="Southwest" Command="{Binding GoTo}" CommandParameter="Southwest" BackgroundColor="#c9082a" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

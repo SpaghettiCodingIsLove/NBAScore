@@ -4,6 +4,7 @@
              xmlns:vm="clr-namespace:NbaScore.ViewModel"
              x:Class="NbaScore.View.Clubs"
              Title="Clubs"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              >
 
     <ContentPage.BindingContext>
@@ -13,8 +14,8 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" >
-            <Button Text="Conferences" Command="{Binding GoTo}" CommandParameter="conf" BackgroundColor="#17408b" TextColor="White"/>
-            <Button Text="Divisions" Command="{Binding GoTo}" CommandParameter="div" BackgroundColor="#c9082a" TextColor="White"/>
+            <Button Text="Conferences" Command="{Binding GoTo}" CommandParameter="conf" BackgroundColor="#17408b" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
+            <Button Text="Divisions" Command="{Binding GoTo}" CommandParameter="div" BackgroundColor="#c9082a" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

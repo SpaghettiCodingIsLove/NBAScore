@@ -4,12 +4,13 @@
              xmlns:vm="clr-namespace:NbaScore.ViewModel"
              x:Class="NbaScore.View.Matches"
              Title="Games"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              >
 
     <ContentPage.BindingContext>
         <vm:GamesViewModel/>
     </ContentPage.BindingContext>
-       
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -28,6 +29,7 @@
                         Text="Prev"
                         FontSize="10"
                         Command="{Binding SubtractMonth}"
+                        BackgroundColor="#17408b" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"
                         />
 
                 <Label Grid.Column="1"
@@ -35,12 +37,14 @@
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        FontSize="15"
+                       
                        />
 
                 <Button Grid.Column="2"
                         Text="Next" 
                         FontSize="10"
                         Command="{Binding AddMonth}"
+                        BackgroundColor="#17408b" TextColor="White" android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"
                         />
 
             </Grid>
@@ -49,11 +53,12 @@
                 Grid.Row="1"
                 ItemsSource="{Binding Dates}"
                 CurrentItem="{Binding Date}"
+                
                 >
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
-                        <Frame>
-                        <Grid>
+                        <Frame BackgroundColor="#D6D6D6">
+                            <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="35" />
                                     <RowDefinition Height="50" />
