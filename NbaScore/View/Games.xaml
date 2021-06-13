@@ -53,11 +53,12 @@
                 Grid.Row="1"
                 ItemsSource="{Binding Dates}"
                 CurrentItem="{Binding Date}"
-                
                 >
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="#D6D6D6">
+                        <Frame
+                                BackgroundColor="#A1A1A1"
+                                >
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="35" />

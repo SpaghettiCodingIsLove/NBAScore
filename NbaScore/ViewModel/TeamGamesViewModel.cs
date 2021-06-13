@@ -7,6 +7,10 @@ using NbaScore.Model.Entities;
 using NbaScore.View;
 using NbaScore.ViewModel.BaseClasses;
 using NbaScore.View.Services;
+using Xamarin.Forms;
+using System.Windows.Input;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace NbaScore.ViewModel
 {
@@ -21,6 +25,25 @@ namespace NbaScore.ViewModel
         public TeamGamesViewModel()
         {
             Team = HelperClass.Team;
+
+            RemoveTeam = new Command(deleteTeam);
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+
+            if (month <= 9)
+                year -= 1;
+
+            Season = $"Season: {year}/{year + 1}";
+            Thread thread = new Thread(() =>
+            {
+                Init();
+            });
+
+            thread.Start();
+        }
+
+        private async Task Init()
+        {
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
 
@@ -28,32 +51,30 @@ namespace NbaScore.ViewModel
                 year -= 1;
 
             Games response = ApiService.GetFavoriteTeamGames(year, Team.Id, 1);
-            TeamGames = response.Data;
-            while(response.Meta.NextPage != null)
+            ObservableCollection<Game> tmpGames = response.Data;
+            while (response.Meta.NextPage != null)
             {
                 Games temp = ApiService.GetFavoriteTeamGames(year, Team.Id, (int)response.Meta.NextPage);
-                foreach(var game in temp.Data)
+                foreach (var game in temp.Data)
                 {
-                    TeamGames.Add(game);
+                    tmpGames.Add(game);
                 }
             }
 
-            int wins = 0;
-            int loses = 0;
-
-            foreach(Game game in TeamGames)
+            for (int i = 0; i < tmpGames.Count; i++)
             {
-                if(game.Postseason == false)
+                for (int j = 0; j < tmpGames.Count - 1; j++)
                 {
-                    if (game.HomeTeamScore > game.VisitorTeamScore)
-                        wins++;
-                    else
-                        loses++;
+                    if (tmpGames[j].Date > tmpGames[j + 1].Date)
+                    {
+                        Game g = tmpGames[j];
+                        tmpGames[j] = tmpGames[j + 1];
+                        tmpGames[j + 1] = g;
+                    }
                 }
             }
 
-            Season = year + "/" + (year + 1);
-            Record = $"Wins: {wins}, Loses: {loses}";
+            TeamGames = tmpGames;
         }
 
         public Team Team
@@ -72,6 +93,20 @@ namespace NbaScore.ViewModel
             set
             {
                 teamGames = value;
+                int wins = 0;
+                int loses = 0;
+
+                foreach (Game game in teamGames)
+                {
+                    if (game.Postseason == false)
+                    {
+                        if (game.HomeTeamScore > game.VisitorTeamScore)
+                            wins++;
+                        else
+                            loses++;
+                    }
+                }
+                Record = "Record: Wins:" + wins + ", Loses:" + loses;
                 OnPropertyChanged(nameof(TeamGames));
             }
         }
@@ -110,6 +145,18 @@ namespace NbaScore.ViewModel
                 record = value;
                 OnPropertyChanged(Record);
             }
+        }
+
+        public ICommand RemoveTeam { get; }
+
+        private void deleteTeam()
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                context.Teams.Remove(team);
+                context.SaveChangesAsync();
+            }
+            Xamarin.Forms.Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }
