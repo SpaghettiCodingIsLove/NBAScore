@@ -13,8 +13,8 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" >
-            <Button Text="Conferences" Command="{Binding GoTo}" CommandParameter="conf"/>
-            <Button Text="Divisions" Command="{Binding GoTo}" CommandParameter="div"/>
+            <Button Text="Conferences" Command="{Binding GoTo}" CommandParameter="conf" BackgroundColor="#17408b" TextColor="White"/>
+            <Button Text="Divisions" Command="{Binding GoTo}" CommandParameter="div" BackgroundColor="#c9082a" TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

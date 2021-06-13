@@ -13,8 +13,6 @@
                 SelectedItem="{Binding PlayerSelected, Mode=TwoWay}"
                 RowHeight="156"
                 Grid.Row="2"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
                 IsVisible="{Binding Initialized}"
                >
                 <ListView.ItemTemplate>

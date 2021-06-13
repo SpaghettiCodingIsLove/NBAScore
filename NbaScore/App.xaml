@@ -8,9 +8,10 @@
         <Style TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
             <Setter Property="BarTextColor" Value="White" />
+            <Setter Property="BackgroundColor" Value="#A1A1A1" />
         </Style>
         <Color x:Key="BarBackgroundColor">#17408b</Color>
-        <Color x:Key="PageBackgroundColor">White</Color>
+        <Color x:Key="PageBackgroundColor">#A1A1A1</Color>
         <Color x:Key="NavigationBarColor">#17408b</Color>
         <Color x:Key="PrimaryColor">#17408b</Color>
         <Color x:Key="SecondaryColor">#c9082a</Color>
