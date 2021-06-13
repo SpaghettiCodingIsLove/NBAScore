@@ -16,6 +16,7 @@
                 ItemsSource="{Binding FavoriteTeams}"
                 RowHeight="156"
                 SelectedItem="{Binding Team, Mode=TwoWay}"
+                SeparatorVisibility="None"
             >
                 <ListView.ItemTemplate>
                     <DataTemplate>

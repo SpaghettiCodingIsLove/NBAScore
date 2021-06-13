@@ -18,5 +18,6 @@ namespace NbaScore.Model.Entities
         [JsonProperty(PropertyName = "position")]
         public string Position { get; set; }
         public Team Team { get; set; }
+        public string FullName => $"{FirstName} {LastName}";
     }
 }

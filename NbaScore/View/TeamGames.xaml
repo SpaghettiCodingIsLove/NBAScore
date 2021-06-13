@@ -90,6 +90,7 @@
                 RowHeight="156"
                 Grid.Row="1"
                 SelectedItem="{Binding Game, Mode=TwoWay}"
+                SeparatorVisibility="None"
             >
                 <ListView.ItemTemplate>
                     <DataTemplate>

@@ -3,49 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NbaScore.View.League"
              Title="{Binding Name}"
-             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              >
     <ContentPage.Content>
         <StackLayout>
             <ListView 
                 ItemsSource="{Binding Teams}"
                 SelectedItem="{Binding TeamSelected, Mode=TwoWay}"
-                RowHeight="156"
-                Grid.Row="2"
+                RowHeight="100"
+                SeparatorVisibility="None"
                >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid
-                                Margin="8, 0, 8, 8"
-                                BackgroundColor="LightGray"
-                                >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20" />
-                                    <RowDefinition Height="136" />
-                                </Grid.RowDefinitions>
+                            <Grid BackgroundColor="#D6D6D6" Margin="8, 4, 8, 4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="7*"/>
+                                </Grid.ColumnDefinitions>
 
-
-                                <Grid Grid.Row="1">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-
-                                    <Grid Grid.Column="0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="80" />
-                                            <RowDefinition Height="20" />
-                                        </Grid.RowDefinitions>
-
-                                        <Image Grid.Row="0" Source="{Binding Abbreviation}" />
-                                        <Label Grid.Row="1" Text="{Binding FullName}"
-                                           HorizontalTextAlignment="Center"
-                                            VerticalTextAlignment="Center"
-                                           />
-                                    </Grid>
-                                </Grid>
+                                <Image Grid.Column="0" Source="{Binding Abbreviation}"/>
+                                <Label Grid.Column="1" Text="{Binding FullName}" HorizontalTextAlignment="Left" VerticalTextAlignment="Center" TextColor="Black" FontSize="Large"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
