@@ -6,8 +6,9 @@
              >
     <ContentPage.Content>
         <StackLayout>
+            <SearchBar TextChanged="SearchBar_TextChanged"></SearchBar>
             <ActivityIndicator IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-            <ListView
+            <ListView x:Name="PlayersListView"
                 ItemsSource="{Binding Players}"
                 SelectedItem="{Binding PlayerSelected, Mode=TwoWay}"
                 RowHeight="50"
