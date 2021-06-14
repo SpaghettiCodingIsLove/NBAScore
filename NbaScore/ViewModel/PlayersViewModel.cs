@@ -6,11 +6,15 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace NbaScore.ViewModel
 {
     class PlayersViewModel : ViewModelBase
     {
+
+        private IEnumerable<Player> players;
+
         public PlayersViewModel()
         {
             loading = true;
@@ -23,7 +27,7 @@ namespace NbaScore.ViewModel
             await HelperClass.Init();
 
             //tu można używać HelperClass.AllPlayers
-
+            Players = HelperClass.AllPlayers.OrderBy(x => x.FirstName).ThenBy(x => x.LastName);
             Loading = false;
             Initialized = true;
         }
@@ -40,6 +44,26 @@ namespace NbaScore.ViewModel
         {
             get => initialized;
             set => SetProperty(ref initialized, value);
+        }
+
+        public Player PlayerSelected
+        {
+            get => null;
+            set
+            {
+                OnPropertyChanged(nameof(PlayerSelected));
+
+                if (value != null)
+                {
+                    Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new PlayerPage(value));
+                }
+            }
+        }
+
+        public IEnumerable<Player> Players
+        {
+            get => players;
+            set => SetProperty(ref players, value);
         }
     }
 }

@@ -4,10 +4,25 @@
              x:Class="NbaScore.View.Players"
              Title="Players"
              >
-
     <ContentPage.Content>
         <StackLayout>
             <ActivityIndicator IsRunning="{Binding Loading}" IsVisible="{Binding Loading}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <ListView
+                ItemsSource="{Binding Players}"
+                SelectedItem="{Binding PlayerSelected, Mode=TwoWay}"
+                RowHeight="50"
+                SeparatorVisibility="None"
+               >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="#D6D6D6" Margin="8, 4, 8, 4">
+                                <Label Text="{Binding FullName}" HorizontalTextAlignment="Left" VerticalTextAlignment="Center" TextColor="Black" FontSize="Large" Padding="8,0,0,0"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
