@@ -11,6 +11,7 @@
             <ListView x:Name="PlayersListView"
                 ItemsSource="{Binding Players}"
                 SelectedItem="{Binding PlayerSelected, Mode=TwoWay}"
+                IsVisible="{Binding Initialized}"
                 RowHeight="50"
                 SeparatorVisibility="None"
                >

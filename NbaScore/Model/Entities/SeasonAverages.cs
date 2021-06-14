@@ -31,5 +31,6 @@ namespace NbaScore.Model.Entities
         public double Fg3Pct { get; set; }
         [JsonProperty(PropertyName = "ft_pct")]
         public double FtPct { get; set; }
+        public string SeasonName => $"{Season}/{Season + 1}";
     }
 }

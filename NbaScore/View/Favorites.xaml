@@ -47,7 +47,7 @@
                                         FontSize="30"
                                         HorizontalTextAlignment="Center"
                                         VerticalTextAlignment="Center"
-                                        TextColor="White"
+                                        TextColor="Black"
                                         Text="{Binding FullName}" />
 
 
@@ -60,16 +60,16 @@
                                         <Label 
                                             Grid.Column="0"
                                             FontSize="20"
-                                            TextColor="White"
+                                            TextColor="Black"
                                             HorizontalTextAlignment="End"
                                             Text="Conference: "
                                             />
 
                                         <Label
                                             Grid.Column="1"
-                                            TextColor="White"
+                                            TextColor="Black"
                                             FontSize="20"
-                                            HorizontalTextAlignment="Center"
+                                            HorizontalTextAlignment="Start"
                                             Text="{Binding Conference}"
                                             />
 

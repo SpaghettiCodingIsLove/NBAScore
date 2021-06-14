@@ -109,7 +109,7 @@ namespace NbaScore.View.Services
             return null;
         }
 
-        public static SeasonAverages GetSeasonAverages()
+        public static SeasonAveragesResponse GetSeasonAverages()
         {
             RestRequest request = new RestRequest();
             request.Method = Method.GET;
@@ -117,12 +117,12 @@ namespace NbaScore.View.Services
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<SeasonAverages>(response.Content);
+                return JsonConvert.DeserializeObject<SeasonAveragesResponse>(response.Content);
             }
             return null;
         }
 
-        public static SeasonAverages GetPlayersSeasonAverages(long playerId, int season)
+        public static SeasonAveragesResponse GetPlayersSeasonAverages(long playerId, int season)
         {
             RestRequest request = new RestRequest();
             request.Method = Method.GET;
@@ -133,7 +133,7 @@ namespace NbaScore.View.Services
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                return JsonConvert.DeserializeObject<SeasonAverages>(response.Content);
+                return JsonConvert.DeserializeObject<SeasonAveragesResponse>(response.Content);
             }
             return null;
         }
