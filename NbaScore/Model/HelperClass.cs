@@ -36,6 +36,7 @@ namespace NbaScore.Model
 
         public static Game Game { get; set; }
         public static Team Team { get; set; }
+        public static Stats PlayerStats { get; set; }
         public static List<Player> AllPlayers { get; set; }
         public static bool Initialized { get; set; }
     }

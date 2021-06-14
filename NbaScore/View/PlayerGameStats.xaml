@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:NbaScore.ViewModel"
+             x:Class="NbaScore.View.PlayerGameStats"
+             Title="{Binding Title, Mode=OneWay}"
+             >
+
+    <ContentPage.BindingContext>
+        <vm:PlayerGameStatsViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <ScrollView HeightRequest="825">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                      Margin="8, 0, 8, 0"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Grid.Column="0"
+                        Source="{Binding Game.HomeTeam.Abbreviation}" />
+
+                    <Label
+                        Grid.Column="1"
+                        Text="{Binding Game.HomeTeamScore}"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="30"
+                        />
+
+                    <Label
+                        Grid.Column="2"
+                        Text=":"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="30"
+                        />
+
+                    <Label
+                        Grid.Column="3"
+                        Text="{Binding Game.VisitorTeamScore}"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="30"
+                        />
+
+                    <Image
+                        Grid.Column="4"
+                        Source="{Binding Game.VisitorTeam.Abbreviation}" />
+
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Label 
+                        Grid.Row="0"
+                        Text="{Binding Stats.Player.FullName}"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        TextColor="Black"
+                        FontSize="30"
+                        />
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label
+                            Grid.Column="0"
+                            Text="Position: "
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="End"
+                            FontSize="15"
+                            TextColor="Black"
+                            />
+
+                        <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Player.Position}"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
+                            FontSize="15"
+                            TextColor="Black"
+                            />
+
+                        <Label
+                            Grid.Column="2"
+                            Text="Height: "
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="End"
+                            FontSize="15"
+                            TextColor="Black"
+                            />
+
+                        <Label
+                            Grid.Column="3"
+                            Text="{Binding Height}"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
+                            FontSize="15"
+                            TextColor="Black"
+                            />
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="2"
+                      BackgroundColor="#c9082a"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Text="Points:"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="White"
+                            FontSize="15"
+                            />
+
+                        <Label
+                            Grid.Row="1"
+                            Text="{Binding Stats.Pts}"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="White"
+                            FontSize="25"
+                            />
+
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Text="Rebounds:"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="White"
+                            FontSize="15"
+                            />
+
+                        <Label
+                            Grid.Row="1"
+                            Text="{Binding Stats.Reb}"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="White"
+                            FontSize="25"
+                            />
+
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="2*" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Text="Assists:"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="White"
+                            FontSize="15"
+                            />
+
+                        <Label
+                            Grid.Row="1"
+                            Text="{Binding Stats.Ast}"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Center"
+                            TextColor="White"
+                            FontSize="25"
+                            />
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Stat:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="Value:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text="Pct:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="4"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Minutes played:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Min}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text=""
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="5"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Def Rebounds:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Dreb}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text=""
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="6"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Off Rebounds:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Oreb}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text=""
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="7"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Blocks"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Blk}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text=""
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="8"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Fouls"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Pf}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text=""
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="9"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Field Goals:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Fgm}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text="{Binding Stats.FgPct}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="10"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="3 Pointers:"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Fg3a}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text="{Binding Stats.Fg3Pct}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="11"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
+                            Text="Free Throws"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Ftm}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text="{Binding Stats.FtPct}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

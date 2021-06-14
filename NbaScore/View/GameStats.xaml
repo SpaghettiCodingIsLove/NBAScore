@@ -193,6 +193,7 @@
                 ItemsSource="{Binding CurrentStats}"
                 RowHeight="75"
                 Grid.Row="2"
+                SelectedItem="{Binding PlayerStats}"
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>

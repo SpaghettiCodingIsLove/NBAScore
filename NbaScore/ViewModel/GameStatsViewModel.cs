@@ -83,5 +83,22 @@ namespace NbaScore.ViewModel
                 }
             }
         }
+
+        private Stats playerStats;
+        public Stats PlayerStats
+        {
+            get => playerStats;
+            set
+            {
+                playerStats = value;
+                if(value != null)
+                {
+                    HelperClass.PlayerStats = value;
+                    Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new PlayerGameStats());
+                    PlayerStats = null;
+                }
+                OnPropertyChanged(nameof(PlayerStats));
+            }
+        }
     }
 }
