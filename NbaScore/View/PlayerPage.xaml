@@ -43,7 +43,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="0" Text="Position:" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                        <Label Grid.Column="0" Text="Height:" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
                         <Label Grid.Column="1" Text="{Binding Height}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="White" FontSize="Medium"/>
                     </Grid>
                 </Grid>
