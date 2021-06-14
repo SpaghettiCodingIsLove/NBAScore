@@ -193,7 +193,7 @@
                 ItemsSource="{Binding CurrentStats}"
                 RowHeight="75"
                 Grid.Row="2"
-                SelectedItem="{Binding PlayerStats}"
+                SelectedItem="{Binding PlayerStats, Mode=TwoWay}"
                 >
                 <ListView.ItemTemplate>
                     <DataTemplate>
