@@ -21,9 +21,10 @@ namespace NbaScore.ViewModel
             game = HelperClass.Game;
             stats = ApiService.GetStatsFromGame(game.Id);
             Title = $"{game.HomeTeam.Name} vs {game.VisitorTeam.Name}";
-            currentStats = new ObservableCollection<Stats>(stats.Data);
+            currentStats = new ObservableCollection<Stats>();
             AwayButton = new Command(Away);
             HomeButton = new Command(Home);
+            SelectedFilter = "All";
         }
 
         private Game game;
@@ -97,6 +98,55 @@ namespace NbaScore.ViewModel
                     Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new PlayerGameStats());
                 }
                 
+            }
+        }
+
+        public List<string> PlayerFilters
+        {
+            get
+            {
+                return new List<string>() { "All", "Home", "Visitors" };
+            }
+        }
+
+        private string selectedFilter;
+        public string SelectedFilter
+        {
+            get => selectedFilter;
+            set
+            {
+                if (value != default)
+                {
+                    SetProperty(ref selectedFilter, value);
+
+                    switch (selectedFilter)
+                    {
+                        case "All":
+                            currentStats.Clear();
+                            stats.Data.ForEach(x => currentStats.Add(x));
+                            break;
+                        case "Home":
+                            currentStats.Clear();
+                            foreach (var s in stats.Data)
+                            {
+                                if (s.Team.Id == game.HomeTeam.Id)
+                                {
+                                    currentStats.Add(s);
+                                }
+                            }
+                            break;
+                        case "Visitors":
+                            currentStats.Clear();
+                            foreach (var s in stats.Data)
+                            {
+                                if (s.Team.Id == game.VisitorTeam.Id)
+                                {
+                                    currentStats.Add(s);
+                                }
+                            }
+                            break;
+                    }
+                }
             }
         }
     }

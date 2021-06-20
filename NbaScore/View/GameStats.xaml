@@ -100,26 +100,9 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Grid.Row="0"
-                        Grid.Column="0"
-                        BackgroundColor="#17408B"
-                        Text="Home"
-                        FontSize="18"
-                        TextColor="White"
-                        Command="{Binding HomeButton}"
-                        android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"
-                        />
-
-                <Button Grid.Row="0" 
-                        Grid.Column="1"
-                        BackgroundColor="#C9082A"
-                        Text="Away"
-                        FontSize="18"
-                        TextColor="White"
-                        Command="{Binding AwayButton}"
-                        android:Button.UseDefaultPadding="True" android:Button.UseDefaultShadow="True"
-                        />
+                <Picker Grid.Column="1" ItemsSource="{Binding PlayerFilters}" SelectedItem="{Binding SelectedFilter, Mode=TwoWay}" HorizontalTextAlignment="Center"/>
             </Grid>
             <Grid Margin="0,200,0,0" Grid.Row="1" BackgroundColor="#17408B">
                 <Grid.ColumnDefinitions>
