@@ -158,7 +158,7 @@ namespace NbaScore.View.Services
             request.Method = Method.GET;
             request.AddParameter("command", "stats", ParameterType.UrlSegment);
             request.AddParameter("game_ids[]", gameId);
-            request.AddParameter("perPage", 50);
+            request.AddParameter("per_page", 50);
 
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)

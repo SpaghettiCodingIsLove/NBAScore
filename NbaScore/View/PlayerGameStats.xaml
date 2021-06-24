@@ -11,12 +11,13 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <ScrollView HeightRequest="825">
+        <ScrollView HeightRequest="875">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="75" />
+                    <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
@@ -401,7 +402,7 @@
 
                     <Label
                             Grid.Column="0"
-                            Text="Fouls"
+                            Text="Turnovers"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
@@ -409,7 +410,7 @@
 
                     <Label
                             Grid.Column="1"
-                            Text="{Binding Stats.Pf}"
+                            Text="{Binding Stats.Turnover}"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
@@ -435,6 +436,40 @@
 
                     <Label
                             Grid.Column="0"
+                            Text="Fouls"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="1"
+                            Text="{Binding Stats.Pf}"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+
+                    <Label
+                            Grid.Column="2"
+                            Text=""
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            TextColor="White"
+                        />
+                </Grid>
+
+                <Grid Grid.Row="10"
+                      BackgroundColor="#17408B"
+                      >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                            Grid.Column="0"
                             Text="Field Goals:"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
@@ -443,7 +478,7 @@
 
                     <Label
                             Grid.Column="1"
-                            Text="{Binding Stats.Fgm}"
+                            Text="{Binding Fg}"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
@@ -451,14 +486,14 @@
 
                     <Label
                             Grid.Column="2"
-                            Text="{Binding Stats.FgPct}"
+                            Text="{Binding FgPct}"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
                         />
                 </Grid>
 
-                <Grid Grid.Row="10"
+                <Grid Grid.Row="11"
                       BackgroundColor="#17408B"
                       >
                     <Grid.ColumnDefinitions>
@@ -477,7 +512,7 @@
 
                     <Label
                             Grid.Column="1"
-                            Text="{Binding Stats.Fg3a}"
+                            Text="{Binding Fg3}"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
@@ -485,14 +520,14 @@
 
                     <Label
                             Grid.Column="2"
-                            Text="{Binding Stats.Fg3Pct}"
+                            Text="{Binding Fg3Pct}"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
                         />
                 </Grid>
 
-                <Grid Grid.Row="11"
+                <Grid Grid.Row="12"
                       BackgroundColor="#17408B"
                       >
                     <Grid.ColumnDefinitions>
@@ -511,7 +546,7 @@
 
                     <Label
                             Grid.Column="1"
-                            Text="{Binding Stats.Ftm}"
+                            Text="{Binding Ft}"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
@@ -519,7 +554,7 @@
 
                     <Label
                             Grid.Column="2"
-                            Text="{Binding Stats.FtPct}"
+                            Text="{Binding FtPct}"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
                             TextColor="White"
