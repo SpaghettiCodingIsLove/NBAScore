@@ -30,7 +30,7 @@
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Row="0" Source="{Binding Game.HomeTeam.Abbreviation}" />
+                    <ImageButton Grid.Row="0" Command="{Binding GoToHome}" Source="{Binding Game.HomeTeam.Abbreviation}" BackgroundColor="#A1A1A1"/>
                     <Label Grid.Row="1" Text="{Binding Game.HomeTeam.Name}"
                                            HorizontalTextAlignment="Center"
                                             VerticalTextAlignment="Center"
@@ -85,7 +85,7 @@
                         <RowDefinition Height="20" />
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Row="0" Source="{Binding Game.VisitorTeam.Abbreviation}" />
+                    <ImageButton Grid.Row="0" Command="{Binding GoToAway}" Source="{Binding Game.VisitorTeam.Abbreviation}" BackgroundColor="#A1A1A1"/>
                     <Label Grid.Row="1" Text="{Binding Game.VisitorTeam.Name}"
                                            HorizontalTextAlignment="Center"
                                             VerticalTextAlignment="Center"

@@ -24,6 +24,8 @@ namespace NbaScore.ViewModel
             currentStats = new ObservableCollection<Stats>();
             AwayButton = new Command(Away);
             HomeButton = new Command(Home);
+            GoToHome = new Command(GoToHomeTeam);
+            GoToAway = new Command(GoToAwayTeam);
             SelectedFilter = "All";
         }
 
@@ -60,6 +62,8 @@ namespace NbaScore.ViewModel
         }
         public ICommand AwayButton { get; }
         public ICommand HomeButton { get; }
+        public ICommand GoToAway { get; }
+        public ICommand GoToHome { get; }
 
         private void Away()
         {
@@ -84,7 +88,14 @@ namespace NbaScore.ViewModel
                 }
             }
         }
-
+        private void GoToHomeTeam()
+        {
+            Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new TeamPage(Game.HomeTeam));
+        }
+        private void GoToAwayTeam()
+        {
+            Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new TeamPage(Game.VisitorTeam));
+        }
         public Stats PlayerStats
         {
             get => null;
