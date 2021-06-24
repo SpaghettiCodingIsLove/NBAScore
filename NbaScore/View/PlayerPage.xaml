@@ -25,15 +25,16 @@
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="1.5*"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Label Grid.Column="0" Text="Position:" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                        <Label Grid.Column="0" Text="Pos:" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
                         <Label Grid.Column="1" Text="{Binding Player.Position}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="White" FontSize="Medium"/>
                     </Grid>
 
@@ -45,6 +46,16 @@
 
                         <Label Grid.Column="0" Text="Height:" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
                         <Label Grid.Column="1" Text="{Binding Height}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="White" FontSize="Medium"/>
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Text="Weight:" TextColor="White" FontAttributes="Bold" FontSize="Medium" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
+                        <Label Grid.Column="1" Text="{Binding Weight}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" TextColor="White" FontSize="Medium"/>
                     </Grid>
                 </Grid>
             </Grid>

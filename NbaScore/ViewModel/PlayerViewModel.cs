@@ -39,6 +39,7 @@ namespace NbaScore.ViewModel
 
         public string Height => Player.HeightFeet.HasValue ? $"{Player.HeightFeet}'{Player.HeightInches}\"" : string.Empty;
 
+        public string Weight => Player.WeightPounds.HasValue ? $"{Player.WeightPounds} lbs" : string.Empty;
         public List<Season> Seasons { get; set; }
 
         private Season selectedSeason;
